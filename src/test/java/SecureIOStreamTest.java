@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertArrayEquals;
 
 import java.io.IOException;
+import java.util.Random;
 
 import org.junit.Test;
 
@@ -9,7 +10,10 @@ import test.secure.SecureIOStream;
 public class SecureIOStreamTest {
 	@Test
 	public void testSecureIOStream() throws IOException {
-		byte[] originalArray = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		Random random = new Random();
+		byte[] originalArray = new byte[8];
+		random.nextBytes(originalArray);
+
 		SecureIOStream secureIOStream = new SecureIOStream(null, null);
 
 		// Send bytes
